@@ -1,4 +1,4 @@
-package jk.appium.deviceproperties;
+package jk.appium.base;
 
 import java.io.File;
 import java.net.MalformedURLException;
