@@ -1,4 +1,4 @@
-package jk.appium.test;
+package jk.appium.app.pageobjects;
 
 import java.net.MalformedURLException;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-import jk.appium.deviceproperties.EnvoSetUp;
+import jk.appium.app.base.EnvoSetUp;
 
 public class AppTest {
 

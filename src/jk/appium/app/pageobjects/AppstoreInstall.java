@@ -1,4 +1,4 @@
-package jk.appium.test;
+package jk.appium.app.pageobjects;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -12,11 +12,11 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import jk.appium.deviceproperties.EnvoSetUp;
+import jk.appium.app.base.EnvoSetUp;
 
 public class AppstoreInstall {
 	EnvoSetUp setEnvo;
-
+	WebDriverWait wait= new WebDriverWait(setEnvo.adir, 150);
 	@BeforeClass
 	public void setUp() throws MalformedURLException 
 	{
@@ -27,7 +27,6 @@ public class AppstoreInstall {
 	@Test
 	public void playInstall() throws InterruptedException, MalformedURLException 
 	{
-		WebDriverWait wait= new WebDriverWait(setEnvo.adir, 10);
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.id("com.android.vending:id/search_box_idle_text"))).click();
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.id("com.android.vending:id/search_box_text_input"))).sendKeys("VCStar");
 
@@ -81,18 +80,16 @@ public class AppstoreInstall {
 	//Method to install an app and launch it.
 	public void install()
 	{
-		WebDriverWait wait = new WebDriverWait(setEnvo.adir, 120);
 		wait.until(ExpectedConditions.elementToBeClickable(By.id("com.android.vending:id/buy_button"))).click();// Taps on the Install button
 		wait.until(ExpectedConditions.elementToBeClickable(By.id("com.android.vending:id/continue_button"))).click();//Taps on the "Accept" button from the alert
 		wait.until(ExpectedConditions.elementToBeClickable(By.id("com.android.vending:id/launch_button"))).click();// Taps on the Open button to launch the app
-		wait.until(ExpectedConditions.elementToBeClickable(By.name("Yes"))).click();// Taps on the "Yes" button for enabling Push notifications 
+		wait.until(ExpectedConditions.elementToBeClickable(By.name("Yes"))).click();// Taps on the "Yes" button for enabling Push notifications
 	}
 	//@Test
 	public void testAppInstall() throws MalformedURLException
 	{
 		String buildNo = "4.2.123.189";
 		setEnvo.installTestApp();
-		WebDriverWait wait = new WebDriverWait(setEnvo.adir, 120);
 		wait.until(ExpectedConditions.elementToBeClickable(By.id("com.scripps.vcstar.mobile:id/sectionSelector_button"))).click();// Taps on the menu icon in the app
 		wait.until(ExpectedConditions.elementToBeClickable(By.id("com.scripps.vcstar.mobile:id/settings"))).click();//Taps on the "Settings" button in the menu
 		wait.until(ExpectedConditions.elementToBeClickable(By.id("com.scripps.vcstar.mobile:id/aboutApp"))).click();// Taps on the "About VCStar" from the list in the settings page

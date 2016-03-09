@@ -1,4 +1,4 @@
-package jk.appium.deviceproperties;
+package jk.appium.app.tests;
 
 
 public class DeviceProperties  {
