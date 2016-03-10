@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.appium.java_client.android.AndroidDriver;
 
-public class PlayStoreSearchPage1 {
+public class PlayStoreSearchPage {
 	
 	private AndroidDriver andodriver;
 	private By searchFieldControl =By.id("com.android.vending:id/search_box_idle_text");
@@ -21,7 +21,7 @@ public class PlayStoreSearchPage1 {
 	
 	WebDriverWait waitfor;
 
-	public PlayStoreSearchPage1(AndroidDriver andodriver)
+	public PlayStoreSearchPage(AndroidDriver andodriver)
 	{
 		this.andodriver=andodriver;
 		waitfor = new WebDriverWait(andodriver, 150);
