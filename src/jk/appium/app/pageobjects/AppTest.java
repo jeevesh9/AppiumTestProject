@@ -6,14 +6,15 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-import jk.appium.app.base.EnvoSetUp;
+import io.appium.java_client.android.AndroidDriver;
+import jk.appium.app.base.BaseEnvoSetUp;
 
 public class AppTest {
-
+	public AndroidDriver andoDriver;
 
 	public static void main(String[] args) throws MalformedURLException, InterruptedException {
 
-		EnvoSetUp setEnvo=new EnvoSetUp();		
+		BaseEnvoSetUp setEnvo=new BaseEnvoSetUp();		
 		setEnvo.setCapabilities();
 
 
@@ -34,10 +35,10 @@ public class AppTest {
 //		wait.until(ExpectedConditions.elementToBeClickable(By.id("android:id/button1")));
 
 		//setEnvo.adir.findElement(By.id("android:id/button1")).click();
-		setEnvo.adir.findElement(By.name("Yes")).click();
-		setEnvo.adir.findElement(By.id("com.whiz.paysonroundup:id/sectionSelector_button")).click();
+		setEnvo.andoDriver.findElement(By.name("Yes")).click();
+		setEnvo.andoDriver.findElement(By.id("com.whiz.paysonroundup:id/sectionSelector_button")).click();
 
-		List<WebElement> seclist = setEnvo.adir.findElements(By.id("com.whiz.paysonroundup:id/label"));
+		List<WebElement> seclist = setEnvo.andoDriver.findElements(By.id("com.whiz.paysonroundup:id/label"));
 		System.out.println(seclist.size());  
 		for(WebElement a:seclist)
 		{
@@ -49,12 +50,12 @@ public class AppTest {
 			{
 				a.click();
 				Thread.sleep(2000);
-				setEnvo.adir.navigate().back();
-				setEnvo.adir.findElement(By.id("com.whiz.paysonroundup:id/sectionSelector_button")).click();
+				setEnvo.andoDriver.navigate().back();
+				setEnvo.andoDriver.findElement(By.id("com.whiz.paysonroundup:id/sectionSelector_button")).click();
 			}
 			Thread.sleep(2000);
 		}
 		Thread.sleep(1000);
-		setEnvo.adir.quit();
+		setEnvo.andoDriver.quit();
 	}
 }

@@ -11,7 +11,7 @@ import io.appium.java_client.remote.MobileCapabilityType;
 
 public class BaseEnvoSetUp {
 	
-	public AndroidDriver andodriver;
+	public AndroidDriver andoDriver;
 	
 	DesiredCapabilities capabilities= new DesiredCapabilities();
 	
@@ -26,7 +26,7 @@ public class BaseEnvoSetUp {
 		capabilities.setCapability(MobileCapabilityType.APP_PACKAGE,"com.android.vending");
 		capabilities.setCapability(MobileCapabilityType.APP_ACTIVITY,"com.android.vending.AssetBrowserActivity");
 		capabilities.setCapability("appiumVersion", "1.4.16.1");
-		return andodriver =new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);	
+		return andoDriver =new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);	
 	}
 
 	public void installTestApp() throws MalformedURLException{
@@ -34,6 +34,6 @@ public class BaseEnvoSetUp {
 		File appDir = new File(classpathRoot, "/apk");
 		File app = new File(appDir, "VCStar.apk");
 		capabilities.setCapability(MobileCapabilityType.APP,app.getAbsolutePath());
-		andodriver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);	
+		andoDriver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);	
 	}
 }

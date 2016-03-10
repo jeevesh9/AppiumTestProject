@@ -13,11 +13,10 @@ import io.appium.java_client.android.AndroidDriver;
 public class PlayStoreSearchPage {
 	
 	private AndroidDriver andodriver;
+	
 	private By searchFieldControl =By.id("com.android.vending:id/search_box_idle_text");
 	private By searchTextField =By.id("com.android.vending:id/search_box_text_input");
 	private By listTitleNames =By.id("com.android.vending:id/li_title");
-	private By uninstallBtn =By.id("com.android.vending:id/uninstall_button");
-	private By acceptBtn =By.id("android:id/button1");
 	
 	WebDriverWait waitfor;
 
@@ -29,7 +28,6 @@ public class PlayStoreSearchPage {
 
 	public void tap_inputText() 
 	{
-		System.out.println("Tapping on the search field & entering the text");
 		waitfor.until(ExpectedConditions.presenceOfElementLocated(searchFieldControl)).click();
 		waitfor.until(ExpectedConditions.presenceOfElementLocated(searchTextField)).sendKeys("VCStar");
 
@@ -39,6 +37,7 @@ public class PlayStoreSearchPage {
 		{
 			Process pc = pb.start();
 			pc.waitFor();
+			System.out.println("Tapping on the search field & entering the text was successfull");
 		}
 		catch (InterruptedException e)
 		{
@@ -50,7 +49,7 @@ public class PlayStoreSearchPage {
 		}
 	}
 
-	public void verifyAppList()
+	public boolean verifyAppList()
 	{
 		String expectedAppName ="Ventura County Star";
 		List<WebElement> playCardsTitles = andodriver.findElements(listTitleNames); // Adding the title names of the search results to the list
@@ -58,13 +57,13 @@ public class PlayStoreSearchPage {
 		{
 			if(e.getText().equalsIgnoreCase(expectedAppName))  // Comparing the name of the title with the app name that we want to install
 			{
-				System.out.println("Found the app in PlayStore now performing actions");
+				System.out.println("Found the app in PlayStore, now performing actions");
 				e.click();
-				waitfor.until(ExpectedConditions.visibilityOfElementLocated(uninstallBtn)).click(); // Taps on Uninstall button
-				waitfor.until(ExpectedConditions.visibilityOfElementLocated(acceptBtn)).click(); // Taps on "OK" from the alert
+				return true;
 			}
 			else
 			System.out.println("Could not find the app in PlayStore");
 		}
+		return false;
 	}
 }

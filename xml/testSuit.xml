@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Appium POM">
+  <test name="Experimental test">
+    <classes>
+      <class name="jk.appium.app.tests.PlayStoreSearchTest"/>
+      <class name="jk.appium.app.tests.PlayStoreInstallTest"/>
+    </classes>
+  </test>
+</suite>
