@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import io.appium.java_client.android.AndroidDriver;
-import jk.appium.app.base.BaseEnvoSetUp;
 
 public class PlayStoreInstallPage {
 	
@@ -21,7 +20,7 @@ public class PlayStoreInstallPage {
 	public PlayStoreInstallPage(AndroidDriver andoDriver)
 	{
 		this.andoDriver=andoDriver;
-		waitfor = new WebDriverWait(andoDriver, 150);
+		waitfor = new WebDriverWait(this.andoDriver, 150);
 	}
 
 	public void install_uninstallApp()

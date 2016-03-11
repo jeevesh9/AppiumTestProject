@@ -12,7 +12,6 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import io.appium.java_client.android.AndroidDriver;
 import jk.appium.app.base.BaseEnvoSetUp;
 
 public class PlayStoreSearchPageOld extends BaseEnvoSetUp {
@@ -22,7 +21,7 @@ public class PlayStoreSearchPageOld extends BaseEnvoSetUp {
 	@BeforeClass
 	public void setUp() throws MalformedURLException 
 	{
-		andoDriver=setCapabilities();
+		setEnvo.setCapabilities();
 		setEnvo=new BaseEnvoSetUp();		
 		setEnvo.setCapabilities();
 	}
