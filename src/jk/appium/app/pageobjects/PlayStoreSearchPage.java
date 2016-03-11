@@ -12,7 +12,7 @@ import io.appium.java_client.android.AndroidDriver;
 
 public class PlayStoreSearchPage {
 	
-	private AndroidDriver andodriver;
+	private AndroidDriver andoDriver;
 	
 	private By searchFieldControl =By.id("com.android.vending:id/search_box_idle_text");
 	private By searchTextField =By.id("com.android.vending:id/search_box_text_input");
@@ -20,10 +20,10 @@ public class PlayStoreSearchPage {
 	
 	WebDriverWait waitfor;
 
-	public PlayStoreSearchPage(AndroidDriver andodriver)
+	public PlayStoreSearchPage(AndroidDriver andoDriver)
 	{
-		this.andodriver=andodriver;
-		waitfor = new WebDriverWait(andodriver, 150);
+		this.andoDriver=andoDriver;
+		waitfor = new WebDriverWait(andoDriver, 150);
 	}
 
 	public void tap_inputText() 
@@ -52,7 +52,7 @@ public class PlayStoreSearchPage {
 	public boolean verifyAppList()
 	{
 		String expectedAppName ="Ventura County Star";
-		List<WebElement> playCardsTitles = andodriver.findElements(listTitleNames); // Adding the title names of the search results to the list
+		List<WebElement> playCardsTitles = andoDriver.findElements(listTitleNames); // Adding the title names of the search results to the list
 		for(WebElement e : playCardsTitles)
 		{
 			if(e.getText().equalsIgnoreCase(expectedAppName))  // Comparing the name of the title with the app name that we want to install

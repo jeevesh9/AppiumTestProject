@@ -2,9 +2,11 @@ package jk.appium.app.tests;
 
 import java.net.MalformedURLException;
 
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import jk.appium.app.base.BaseEnvoSetUp;
+import jk.appium.app.pageobjects.PlayStoreAppNotifyPage;
 import jk.appium.app.pageobjects.PlayStoreInstallPage;
 import jk.appium.app.pageobjects.PlayStoreSearchPage;
 
@@ -12,6 +14,7 @@ public class PlayStoreInstallTest extends BaseEnvoSetUp{
 	BaseEnvoSetUp setEnvo;
 	PlayStoreSearchPage playsrch;
 	PlayStoreInstallPage inst;
+	PlayStoreAppNotifyPage notify;
 	
 	@BeforeClass
 	public void setUp() throws MalformedURLException
@@ -20,7 +23,7 @@ public class PlayStoreInstallTest extends BaseEnvoSetUp{
 		this.andoDriver= getDriver();
 	}
 	
-	@Test
+	@Test(priority=0)
 	public void verifyAppSearchList()
 	{
 		System.out.println("Searching the app in PlayStore...");
@@ -29,17 +32,23 @@ public class PlayStoreInstallTest extends BaseEnvoSetUp{
 		playsrch.verifyAppList();
 	}
 	
-	@Test
+	@Test(priority=1)
 	public void verifyFreshInstall() {
 
 		inst=new PlayStoreInstallPage(andoDriver);
 		inst.install_uninstallApp();
 	}
 	
+	@Test(priority=2)
+	public void acceptNotificationsPopUp()
+	{
+		notify=new PlayStoreAppNotifyPage(andoDriver);
+		notify.acceptNotifications();
+	}
 	
-	/*@AfterClass
+	@AfterClass
 	public void tearDown() 
 	{
 		andoDriver.quit();
-	}*/
+	}
 }
