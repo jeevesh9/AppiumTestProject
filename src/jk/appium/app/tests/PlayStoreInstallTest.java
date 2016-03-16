@@ -5,12 +5,15 @@ import java.net.MalformedURLException;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
+import io.appium.java_client.android.AndroidDriver;
 import jk.appium.app.base.BaseEnvoSetUp;
 import jk.appium.app.pageobjects.PlayStoreAppNotifyPage;
 import jk.appium.app.pageobjects.PlayStoreInstallPage;
 import jk.appium.app.pageobjects.PlayStoreSearchPage;
 
 public class PlayStoreInstallTest extends BaseEnvoSetUp{
+	AndroidDriver andoDriver;
 	BaseEnvoSetUp setEnvo;
 	PlayStoreSearchPage playsrch;
 	PlayStoreInstallPage inst;
