@@ -9,7 +9,7 @@ import io.appium.java_client.remote.MobileCapabilityType;
 
 public class BaseEnvoSetUp {
 
-	public AndroidDriver andoDriver;
+	private static AndroidDriver andoDriver;
 
 	DesiredCapabilities capabilities= new DesiredCapabilities();
 
@@ -27,12 +27,14 @@ public class BaseEnvoSetUp {
 		return new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
 	}
 
-	public void installTestApp() throws MalformedURLException{
+	public AndroidDriver installTestApp() throws MalformedURLException{
 		File classpathRoot = new File("F:/TestWorkSpace/Appium_Test");
 		File appDir = new File(classpathRoot, "/apk");
 		File app = new File(appDir, "VCStar.apk");
+		capabilities.setCapability(MobileCapabilityType.DEVICE_NAME,"4dfca3c836d9504f");
 		capabilities.setCapability(MobileCapabilityType.APP,app.getAbsolutePath());
-		andoDriver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);	
+		capabilities.setCapability(MobileCapabilityType.APP_ACTIVITY,"com.whiz.activity.SplashScreen");
+		return new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);	
 	}
 
 	public AndroidDriver getDriver() throws MalformedURLException
