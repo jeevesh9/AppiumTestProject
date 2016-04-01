@@ -10,8 +10,9 @@ import io.appium.java_client.android.AndroidDriver;
 import jk.appium.app.base.BaseEnvoSetUp;
 
 public class AppTest {
-	public AndroidDriver andoDriver;
+	public static AndroidDriver andoDriver;
 
+	
 	public static void main(String[] args) throws MalformedURLException, InterruptedException {
 
 		BaseEnvoSetUp setEnvo=new BaseEnvoSetUp();		
@@ -35,10 +36,10 @@ public class AppTest {
 //		wait.until(ExpectedConditions.elementToBeClickable(By.id("android:id/button1")));
 
 		//setEnvo.adir.findElement(By.id("android:id/button1")).click();
-		setEnvo.andoDriver.findElement(By.name("Yes")).click();
-		setEnvo.andoDriver.findElement(By.id("com.whiz.paysonroundup:id/sectionSelector_button")).click();
+		andoDriver.findElement(By.name("Yes")).click();
+		andoDriver.findElement(By.id("com.whiz.paysonroundup:id/sectionSelector_button")).click();
 
-		List<WebElement> seclist = setEnvo.andoDriver.findElements(By.id("com.whiz.paysonroundup:id/label"));
+		List<WebElement> seclist = andoDriver.findElements(By.id("com.whiz.paysonroundup:id/label"));
 		System.out.println(seclist.size());  
 		for(WebElement a:seclist)
 		{
@@ -50,12 +51,12 @@ public class AppTest {
 			{
 				a.click();
 				Thread.sleep(2000);
-				setEnvo.andoDriver.navigate().back();
-				setEnvo.andoDriver.findElement(By.id("com.whiz.paysonroundup:id/sectionSelector_button")).click();
+				andoDriver.navigate().back();
+				andoDriver.findElement(By.id("com.whiz.paysonroundup:id/sectionSelector_button")).click();
 			}
 			Thread.sleep(2000);
 		}
 		Thread.sleep(1000);
-		setEnvo.andoDriver.quit();
+		andoDriver.quit();
 	}
 }
