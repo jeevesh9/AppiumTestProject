@@ -12,10 +12,11 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import io.appium.java_client.android.AndroidDriver;
 import jk.appium.app.base.BaseEnvoSetUp;
 
 public class PlayStoreSearchPageOld extends BaseEnvoSetUp {
-	
+	AndroidDriver andoDriver;
 	BaseEnvoSetUp setEnvo;
 	WebDriverWait wait= new WebDriverWait(andoDriver, 150);
 	@BeforeClass
@@ -43,7 +44,7 @@ public class PlayStoreSearchPageOld extends BaseEnvoSetUp {
 		}
 
 		Thread.sleep(2000);
-		List<WebElement> playCardsTitles = setEnvo.andoDriver.findElements(By.id("com.android.vending:id/li_title")); // Adding the title names of the search results to the list
+		List<WebElement> playCardsTitles = andoDriver.findElements(By.id("com.android.vending:id/li_title")); // Adding the title names of the search results to the list
 		for(WebElement e : playCardsTitles)
 		{
 			if(e.getText().equalsIgnoreCase("Ventura County Star"))  // Comparing the name of the title with the app name that we want to install
@@ -51,8 +52,8 @@ public class PlayStoreSearchPageOld extends BaseEnvoSetUp {
 				e.click();
 				if(IsTestElementPresent()==true)
 				{
-					setEnvo.andoDriver.findElement(By.id("com.android.vending:id/uninstall_button")).click(); // Taps on Uninstall button
-					setEnvo.andoDriver.findElement(By.id("android:id/button1")).click();						// Taps on "OK" from the alert
+					andoDriver.findElement(By.id("com.android.vending:id/uninstall_button")).click(); // Taps on Uninstall button
+					andoDriver.findElement(By.id("android:id/button1")).click();						// Taps on "OK" from the alert
 					install();	
 					testAppInstall();
 				}
@@ -70,7 +71,7 @@ public class PlayStoreSearchPageOld extends BaseEnvoSetUp {
 	{
 		try
 		{
-			setEnvo.andoDriver.findElement(By.id("com.android.vending:id/uninstall_button"));// To check if the Uninstall button/element is present or not
+			andoDriver.findElement(By.id("com.android.vending:id/uninstall_button"));// To check if the Uninstall button/element is present or not
 			return true;
 		}
 		catch (Exception e)
@@ -96,7 +97,7 @@ public class PlayStoreSearchPageOld extends BaseEnvoSetUp {
 		wait.until(ExpectedConditions.elementToBeClickable(By.id("com.scripps.vcstar.mobile:id/settings"))).click();//Taps on the "Settings" button in the menu
 		wait.until(ExpectedConditions.elementToBeClickable(By.id("com.scripps.vcstar.mobile:id/aboutApp"))).click();// Taps on the "About VCStar" from the list in the settings page
 		
-		List<WebElement> listTextView = setEnvo.andoDriver.findElements(By.id("com.scripps.vcstar.mobile:id/footer"));
+		List<WebElement> listTextView = andoDriver.findElements(By.id("com.scripps.vcstar.mobile:id/footer"));
 		for(WebElement e1:listTextView)
 		{
 			if(e1.getText().equalsIgnoreCase(buildNo))
@@ -110,6 +111,6 @@ public class PlayStoreSearchPageOld extends BaseEnvoSetUp {
 	@AfterClass
 	public void tearDown() 
 	{
-		setEnvo.andoDriver.quit();
+		andoDriver.quit();
 	}
 }
