@@ -50,7 +50,7 @@ public class PlayStoreSearchPageOld extends BaseEnvoSetUp {
 			if(e.getText().equalsIgnoreCase("Ventura County Star"))  // Comparing the name of the title with the app name that we want to install
 			{
 				e.click();
-				if(IsTestElementPresent()==true)
+				if(isTestElementPresent()==true)
 				{
 					andoDriver.findElement(By.id("com.android.vending:id/uninstall_button")).click(); // Taps on Uninstall button
 					andoDriver.findElement(By.id("android:id/button1")).click();						// Taps on "OK" from the alert
@@ -67,7 +67,7 @@ public class PlayStoreSearchPageOld extends BaseEnvoSetUp {
 	}
 
 	//Method that checks if an element is present or not
-	public boolean IsTestElementPresent()
+	public boolean isTestElementPresent()
 	{
 		try
 		{

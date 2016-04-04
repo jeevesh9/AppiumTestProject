@@ -26,7 +26,7 @@ public class PlayStoreSearchPage {
 		waitfor = new WebDriverWait(andoDriver, 150);
 	}
 
-	public void tap_inputText() 
+	public void tapInputText() 
 	{
 		waitfor.until(ExpectedConditions.presenceOfElementLocated(searchFieldControl)).click();
 		waitfor.until(ExpectedConditions.presenceOfElementLocated(searchTextField)).sendKeys("VCStar");
@@ -51,7 +51,7 @@ public class PlayStoreSearchPage {
 
 	public boolean verifyAppList()
 	{
-		String expectedAppName ="Ventura County Star";
+		final String expectedAppName ="Ventura County Star";
 		List<WebElement> playCardsTitles = andoDriver.findElements(listTitleNames); // Adding the title names of the search results to the list
 		for(WebElement e : playCardsTitles)
 		{

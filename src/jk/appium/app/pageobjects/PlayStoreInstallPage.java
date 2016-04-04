@@ -23,9 +23,9 @@ public class PlayStoreInstallPage {
 		waitfor = new WebDriverWait(this.andoDriver, 150);
 	}
 
-	public void install_uninstallApp()
+	public void installUninstallApp()
 	{
-		if(IsTestElementPresent()==true)
+		if(isTestElementPresent()==true)
 		{
 			andoDriver.findElement(uninstallBtn).click(); // Taps on Uninstall button
 			waitfor.until(ExpectedConditions.visibilityOfElementLocated(uninstallOkBtn)).click(); // Taps on "OK" from the alert
@@ -38,8 +38,10 @@ public class PlayStoreInstallPage {
 		}
 	}
 	
-	//Method that checks if an element is present or not
-		public boolean IsTestElementPresent()
+	/*
+	 * Method that checks if an element is present or not
+	 */
+		public boolean isTestElementPresent() 
 		{
 			try
 			{

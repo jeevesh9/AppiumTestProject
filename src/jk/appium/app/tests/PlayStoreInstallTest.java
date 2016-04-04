@@ -31,7 +31,7 @@ public class PlayStoreInstallTest extends BaseEnvoSetUp{
 	{
 		System.out.println("Searching the app in PlayStore...");
 		playsrch=new PlayStoreSearchPage(andoDriver);
-		playsrch.tap_inputText();
+		playsrch.tapInputText();
 		playsrch.verifyAppList();
 	}
 	
@@ -39,7 +39,7 @@ public class PlayStoreInstallTest extends BaseEnvoSetUp{
 	public void verifyFreshInstall() {
 
 		inst=new PlayStoreInstallPage(andoDriver);
-		inst.install_uninstallApp();
+		inst.installUninstallApp();
 	}
 	
 	@Test(priority=2)
