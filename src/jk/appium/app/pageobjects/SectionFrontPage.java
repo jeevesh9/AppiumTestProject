@@ -1,0 +1,43 @@
+package jk.appium.app.pageobjects;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import static org.junit.Assert.assertTrue;
+
+import io.appium.java_client.android.AndroidDriver;
+
+public class SectionFrontPage {
+	
+	private AndroidDriver andoDriver;
+	
+	private By menuBtn =By.id("com.scripps.vcstar.mobile:id/sectionSelector_button");
+	private By refreshBtn =By.id("com.scripps.vcstar.mobile:id/refresh");
+	private By timeLineBtn =By.id("com.scripps.vcstar.mobile:id/timeline_settings");	
+	
+	WebDriverWait waitfor;
+
+	public SectionFrontPage(AndroidDriver andoDriver)
+	{
+		this.andoDriver=andoDriver;
+		waitfor = new WebDriverWait(andoDriver, 150);
+	}
+	
+	public void verifyMenuBtn()
+	{
+		waitfor.until(ExpectedConditions.presenceOfElementLocated(menuBtn));// Checks if the menu icon is available in the app
+		assertTrue(andoDriver.findElement(menuBtn).isDisplayed());
+	}
+
+	public void verifyRefreshBtn()
+	{
+		waitfor.until(ExpectedConditions.presenceOfElementLocated(refreshBtn));// Checks if the refresh icon is available in the app
+		assertTrue(andoDriver.findElement(refreshBtn).isDisplayed());		
+	}
+
+	public void verifyTimeLineBtn()
+	{
+		waitfor.until(ExpectedConditions.presenceOfElementLocated(timeLineBtn));// Checks if the refresh icon is available in the app
+		assertTrue(andoDriver.findElement(timeLineBtn).isDisplayed());
+	}
+}

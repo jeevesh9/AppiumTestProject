@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 import io.appium.java_client.android.AndroidDriver;
 import jk.appium.app.base.BaseEnvoSetUp;
-import jk.appium.app.pageobjects.PlayStoreAppNotifyPage;
+import jk.appium.app.pageobjects.AppNotificationPopUp;
 import jk.appium.app.pageobjects.PlayStoreInstallPage;
 import jk.appium.app.pageobjects.PlayStoreSearchPage;
 
@@ -17,7 +17,7 @@ public class PlayStoreInstallTest extends BaseEnvoSetUp{
 	BaseEnvoSetUp setEnvo;
 	PlayStoreSearchPage playsrch;
 	PlayStoreInstallPage inst;
-	PlayStoreAppNotifyPage notify;
+	AppNotificationPopUp notify;
 	
 	@BeforeClass
 	public void setUp() throws MalformedURLException
@@ -45,7 +45,7 @@ public class PlayStoreInstallTest extends BaseEnvoSetUp{
 	@Test(priority=2)
 	public void acceptNotificationsPopUp()
 	{
-		notify=new PlayStoreAppNotifyPage(andoDriver);
+		notify=new AppNotificationPopUp(andoDriver);
 		notify.acceptNotifications();
 	}
 	
