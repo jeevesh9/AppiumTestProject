@@ -23,21 +23,27 @@ public class SectionFrontPage {
 		waitfor = new WebDriverWait(andoDriver, 150);
 	}
 	
-	public void verifyMenuBtn()
+	public void verifyMenuBtnVisible()
 	{
 		waitfor.until(ExpectedConditions.presenceOfElementLocated(menuBtn));// Checks if the menu icon is available in the app
 		assertTrue(andoDriver.findElement(menuBtn).isDisplayed());
 	}
 
-	public void verifyRefreshBtn()
+	public void verifyRefreshBtnVisible()
 	{
 		waitfor.until(ExpectedConditions.presenceOfElementLocated(refreshBtn));// Checks if the refresh icon is available in the app
 		assertTrue(andoDriver.findElement(refreshBtn).isDisplayed());		
 	}
 
-	public void verifyTimeLineBtn()
+	public void verifyTimeLineBtnVisible()
 	{
 		waitfor.until(ExpectedConditions.presenceOfElementLocated(timeLineBtn));// Checks if the refresh icon is available in the app
 		assertTrue(andoDriver.findElement(timeLineBtn).isDisplayed());
+	}
+	
+	public void verifyMenuBtnClickable()
+	{
+		waitfor.until(ExpectedConditions.elementToBeClickable(menuBtn)).click();// Checks if the menu icon is clickable in the app
+		assertTrue(andoDriver.findElement(menuBtn).isDisplayed());
 	}
 }

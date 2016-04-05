@@ -53,17 +53,16 @@ public class TestBuildAutomated extends BaseEnvoSetUp{
 		abtUs=new AboutUsPage(andoDriver);
 		abtUs.verifyAppVersion();
 	}
-
-
+	
 	/* 
 	 * This test is to check if the icons and buttons are visible on the section front
 	 */
 	@Test(priority=2)
 	public void sectionFrontCheck() {
 		secFrnt=new SectionFrontPage(andoDriver);
-		secFrnt.verifyMenuBtn();
-		secFrnt.verifyRefreshBtn();
-		secFrnt.verifyTimeLineBtn();
+		secFrnt.verifyMenuBtnVisible();
+		secFrnt.verifyRefreshBtnVisible();
+		secFrnt.verifyTimeLineBtnVisible();
 	}
 	
 	@AfterClass
