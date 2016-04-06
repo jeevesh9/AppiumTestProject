@@ -46,4 +46,10 @@ public class SectionFrontPage {
 		waitfor.until(ExpectedConditions.elementToBeClickable(menuBtn)).click();// Checks if the menu icon is clickable in the app
 		assertTrue(andoDriver.findElement(menuBtn).isDisplayed());
 	}
+	
+	public void verifyRefreshBtnClickable()
+	{
+		waitfor.until(ExpectedConditions.elementToBeClickable(refreshBtn)).click();// Checks if the refresh icon is available in the app
+		assertTrue(andoDriver.findElement(refreshBtn).isDisplayed());		
+	}
 }
